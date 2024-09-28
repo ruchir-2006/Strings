@@ -1,41 +1,33 @@
-#include<iostream>
-#include<bits/stdc++.h>
-using namespace std;
-
-
-void vowels_consonants(string s)
-{
-    int n=s.size();
+#include <bits/stdc++.h> 
+vector<int> countVowelsConsonantsSpaces(string &s, int n) {
+   
     int vowels= 0;
     int consonants=0;
-    int numbers = 0;
+    int spaces = 0;
+    vector<int> ans;
 
     for(int i=0; i<n ; i++)
     {
         char ch = s[i];
-        if(ch>= 'a' && ch<='z')
-        {
-            if(ch == 'a' || ch == 'e'|| ch == 'i' || ch == 'o' || ch == 'u')
+        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+          if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'||ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
             vowels++;
-            else
+            
+          else
             consonants++;
+            
         }
-        
+
         else
-        numbers++;
-        
-       
+          spaces++;
+      
+
+
     }
-    cout<<"Number of Vowels : "<<" "<<vowels<<endl;
-    cout<<"Number of Numbers : "<<" "<<numbers<<endl;
-    cout<<"Number of consonants : "<<" "<<consonants<<endl;
+    ans.push_back(vowels);
+    ans.push_back(consonants);
+    ans.push_back(spaces);
 
-}
-
-int main()
-{
-    string name = "aeiou667";
-    vowels_consonants(name);
-    return 0;
     
+    return ans;
 }
